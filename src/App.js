@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useEffect, useState } from "react";
+import socketIO from 'socket.io-client';
+const socket = socketIO.connect("http://localhost:3500")
 function App() {
+  const [messages, updateMessages] = useState([])
+  function message() {
+    socket.emit("message", socket.id.substring(0,5) + " said hi")
+  }
+
+  useEffect (() => {
+    socket.on("message", (data) => {
+      updateMessages(messages + " " + data)
+    })
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input></input><button onClick={() => {message()}}>Send</button>
+      <div>{messages}</div>
     </div>
-  );
+    );
 }
 
 export default App;
