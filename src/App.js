@@ -1,19 +1,23 @@
 import "./App.css";
+import TextBubble from "./components/TextBubble";
 import { useEffect, useState } from "react";
 import socketIO from "socket.io-client";
 const socket = socketIO.connect("http://localhost:3500");
 function App() {
   const [messageList, updateMessageList] = useState([]);
 
-  const [inputValue, updateInputValue] = useState("");
+  const [text, updateText] = useState('');
 
-  function handleInputValueChange(event) {
-    updateInputValue(event.target.value);
+  function handleUpdateText(event) {
+    updateText(event.target.value);
   }
 
   function message() {
-    socket.emit("message", inputValue);
-    console.log(messageList);
+    if (text !== '') {
+      socket.emit("message", text);
+      console.log(messageList);
+      updateText('')
+    }
   }
 
   useEffect(() => {
@@ -27,13 +31,13 @@ function App() {
       <div className="container">
         <div>
           {messageList.map((m) => (
-            <div className="container">{m}</div>
+            <TextBubble text={m}></TextBubble>
           ))}
         </div>
       </div>
 
       <div className="chat">
-        <input className="chatbox" value={inputValue} onChange={handleInputValueChange}></input>
+        <input className="chatbox" value={text} onChange={handleUpdateText}></input>
         <button
           onClick={() => {
             message();
