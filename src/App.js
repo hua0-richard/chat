@@ -7,26 +7,35 @@ function App() {
 
   function message() {
     socket.emit("message", socket.id.substring(0, 5) + " said hi");
-    console.log(messageList)
+    console.log(messageList);
   }
 
   useEffect(() => {
     socket.on("message", (data) => {
-      updateMessageList([...messageList," " + data]);
+      updateMessageList([...messageList, " " + data]);
     });
   });
 
   return (
     <div>
-      <input></input>
-      <button
-        onClick={() => {
-          message();
-        }}
-      >
-        Send
-      </button>
-      {messageList.map((m) => (<div className="container">{m}</div>))}
+      <div className="container">
+        <div>
+          {messageList.map((m) => (
+            <div className="container">{m}</div>
+          ))}
+        </div>
+      </div>
+
+      <div className="chat">
+        <input className="chatbox"></input>
+        <button
+          onClick={() => {
+            message();
+          }}
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 }
