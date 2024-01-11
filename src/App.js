@@ -5,8 +5,14 @@ const socket = socketIO.connect("http://localhost:3500");
 function App() {
   const [messageList, updateMessageList] = useState([]);
 
+  const [inputValue, updateInputValue] = useState("");
+
+  function handleInputValueChange(event) {
+    updateInputValue(event.target.value);
+  }
+
   function message() {
-    socket.emit("message", socket.id.substring(0, 5) + " said hi");
+    socket.emit("message", inputValue);
     console.log(messageList);
   }
 
@@ -27,7 +33,7 @@ function App() {
       </div>
 
       <div className="chat">
-        <input className="chatbox"></input>
+        <input className="chatbox" value={inputValue} onChange={handleInputValueChange}></input>
         <button
           onClick={() => {
             message();
