@@ -1,6 +1,28 @@
 .bubble {
-    margin: 8px; 
+    display: flex;
+    overflow: scroll;
     padding: 8px;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: lightcoral;
+    overflow-wrap: break-word;
+    max-width: 60vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.profile {
+    width: 36px;
+    height: 36px; 
+    border-radius: 50%;
+    background-color: red;
 }
