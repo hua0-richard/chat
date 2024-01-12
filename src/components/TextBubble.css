@@ -1,7 +1,9 @@
 .bubble {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: lightcoral;
   overflow-wrap: break-word;
   max-width: 50vw;
@@ -9,11 +11,13 @@
 
 .bubbleAlt {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: blue;
   overflow-wrap: break-word;
-  max-width: 60vw;
+  max-width: 50vw;
 }
 
 .container {
