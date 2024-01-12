@@ -9,9 +9,6 @@ function TextBubble({ data, user }) {
       {user === data.user ? (
         <div className="container-self">
           <div class="bubble">{data.data}</div>
-          <div class="profile-container">
-            <div class="profile"></div>
-          </div>
         </div>
       ) : (
         <div className="container-other">

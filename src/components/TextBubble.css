@@ -4,7 +4,7 @@
   border-radius: 8px;
   background-color: lightcoral;
   overflow-wrap: break-word;
-  max-width: 60vw;
+  max-width: 50vw;
 }
 
 .bubbleAlt {
@@ -29,20 +29,22 @@
 }
 
 .profile {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background-color: red;
 }
 
 .container-other {
-  width: 100vw;
+  padding: 8px;
+  width: 90vw;
   display: flex;
   justify-content: flex-start;
 }
 
 .container-self {
-  width: 100vw;
+  padding: 8px;
+  width: 90vw;
   display: flex;
   justify-content: flex-end;
 }

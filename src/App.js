@@ -26,13 +26,11 @@ function App() {
   });
 
   return (
-    <div>
-      <div className="container">
-        <div>
-          {messageList.map((m) => (
-            <TextBubble data={m} user={socket.id}></TextBubble>
-          ))}
-        </div>
+    <div className="container">
+      <div className="message-container">
+        {messageList.map((m) => (
+          <TextBubble data={m} user={socket.id}></TextBubble>
+        ))}
       </div>
 
       <div className="chat">
