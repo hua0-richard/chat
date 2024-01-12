@@ -1,28 +1,48 @@
 .bubble {
-    display: flex;
-    overflow: scroll;
-    padding: 8px;
-    border-radius: 8px;
-    background-color: lightcoral;
-    overflow-wrap: break-word;
-    max-width: 60vw;
+  display: flex;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: lightcoral;
+  overflow-wrap: break-word;
+  max-width: 60vw;
+}
+
+.bubbleAlt {
+  display: flex;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: blue;
+  overflow-wrap: break-word;
+  max-width: 60vw;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .profile {
-    width: 36px;
-    height: 36px; 
-    border-radius: 50%;
-    background-color: red;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.container-other {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container-self {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
 }
