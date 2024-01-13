@@ -56,7 +56,8 @@ body {
   transition: color 0.25s ease;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
