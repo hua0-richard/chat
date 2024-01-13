@@ -4,7 +4,8 @@
   align-items: center;
   padding: 8px;
   border-radius: 16px;
-  background-color: #2ecc71;
+  background-color: #F5CB5C;
+  color: #242423;
   word-break: break-word;
   max-width: 50vw;
 }
@@ -15,7 +16,7 @@
   align-items: center;
   padding: 8px;
   border-radius: 16px;
-  background-color:  #3498db;
+  background-color:  #333533;
   word-break: break-word;
   max-width: 50vw;
 }
@@ -36,7 +37,8 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: red;
+  border: 2px solid #CFDBD5;
+  background-color: #CFDBD5;
 }
 
 .container-other {
