@@ -7,6 +7,7 @@ import socketIO from "socket.io-client";
 const socket = socketIO.connect("http://localhost:3500");
 function App() {
   const [messageList, updateMessageList] = useState([]);
+  const [messageFlag, updateMessageFlag] = useState(true);
   const [text, updateText] = useState("");
   const targetElementRef = useRef(null);
 
@@ -30,13 +31,17 @@ function App() {
   useEffect(() => {
     socket.on("message", (mes) => {
       updateMessageList([...messageList, mes]);
+      updateMessageFlag(true);
     })
-    scrollToTarget(); 
+    if (messageFlag) {
+        scrollToTarget(); 
+        updateMessageFlag(false);
+    }
   });
 
   return (
     <div>
-      <div className="Header">
+      <div className="header">
         <h1 style={{ width: "170px" }}>Chat Room</h1>
       </div>
         <div className="message-container">
