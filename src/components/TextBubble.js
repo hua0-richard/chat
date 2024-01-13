@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "boring-avatars";
 import "./TextBubble.css";
 
 function TextBubble({ data, user }) {
@@ -13,7 +14,13 @@ function TextBubble({ data, user }) {
       ) : (
         <div className="container-other">
           <div class="profile-container">
-            <div class="profile"></div>
+            {/* <div class="profile"></div> */}
+            <Avatar
+                size={24}
+                name={data.user}
+                variant="marble"
+                colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+            />
           </div>
           <div class="bubbleAlt">{data.data}</div>
         </div>
