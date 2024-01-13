@@ -1,12 +1,16 @@
 body {
-  background-color: black;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .message-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
   margin: 8px;
   padding-bottom: 36px;
 }
@@ -17,8 +21,42 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100vw;
+  padding: 12px;
+}
+
+.chat-container {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: red;
+  border-radius: 12px;
 }
 
 .chatbox {
   padding: 6px;
+  width: 400px;
+  height: 25px; 
+  border: none; 
+  background-color: red;
+}
+
+.chatbox:focus  {
+  outline: none; 
+}
+
+.send-container {
+  padding-right: 12px; 
+  padding-left: 12px;
+}
+
+.send-container:hover {
+  cursor: pointer;
+  color: white;
+  transition: color 0.25s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
 }
