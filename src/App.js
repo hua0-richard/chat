@@ -12,7 +12,7 @@ function App() {
   const targetElementRef = useRef(null);
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       message();
     }
   };
@@ -37,10 +37,10 @@ function App() {
     socket.on("message", (mes) => {
       updateMessageList([...messageList, mes]);
       updateMessageFlag(true);
-    })
+    });
     if (messageFlag) {
-        scrollToTarget(); 
-        updateMessageFlag(false);
+      scrollToTarget();
+      updateMessageFlag(false);
     }
   });
 
@@ -49,12 +49,12 @@ function App() {
       <div className="header">
         <h1 style={{ width: "170px" }}>Chat Room</h1>
       </div>
-        <div className="message-container">
-          {messageList.map((m) => (
-            <TextBubble data={m} user={socket.id}></TextBubble>     
-          ))}
-          <div id="ref" ref={targetElementRef}></div>
-        </div>
+      <div className="message-container">
+        {messageList.map((m) => (
+          <TextBubble data={m} user={socket.id}></TextBubble>
+        ))}
+        <div id="ref" ref={targetElementRef}></div>
+      </div>
       <div className="chat">
         <div className="chat-container">
           <input
