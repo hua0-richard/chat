@@ -1,6 +1,6 @@
 body {
   background-color: #242423;
-  color: #E8EDDF;
+  color: #e8eddf;
 }
 
 .container {
@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 8px;
-  padding-bottom: 36px;
+  padding-bottom: 120px;
 }
 
 .chat {
@@ -37,25 +37,25 @@ body {
 .chatbox {
   padding: 6px;
   width: 400px;
-  height: 25px; 
-  border: none; 
+  height: 25px;
+  border: none;
   background-color: #333533;
-  color: #E8EDDF;
+  color: #e8eddf;
 }
 
-.chatbox:focus  {
-  outline: none; 
+.chatbox:focus {
+  outline: none;
 }
 
 .send-container {
-  padding-right: 12px; 
+  padding-right: 12px;
   padding-left: 12px;
-  color:  #F5CB5C;
+  color: #f5cb5c;
 }
 
 .send-container:hover {
   cursor: pointer;
-  color: #E8EDDF;
+  color: #e8eddf;
   transition: color 0.25s ease;
 }
 
