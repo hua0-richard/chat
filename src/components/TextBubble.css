@@ -4,7 +4,7 @@
   align-items: center;
   padding: 8px;
   border-radius: 16px;
-  background-color: lightcoral;
+  background-color: #2ecc71;
   word-break: break-word;
   max-width: 50vw;
 }
@@ -15,7 +15,7 @@
   align-items: center;
   padding: 8px;
   border-radius: 16px;
-  background-color: blue;
+  background-color:  #3498db;
   word-break: break-word;
   max-width: 50vw;
 }
