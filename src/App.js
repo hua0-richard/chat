@@ -11,7 +11,12 @@ function App() {
   const [text, updateText] = useState("");
   const targetElementRef = useRef(null);
 
-  // Function to scroll to the target element
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      message();
+    }
+  };
+
   const scrollToTarget = () => {
     targetElementRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -57,6 +62,7 @@ function App() {
             className="chatbox"
             value={text}
             onChange={handleUpdateText}
+            onKeyDown={handleKeyDown}
           ></input>
           <div className="send-container">
             <FaPaperPlane
