@@ -1,7 +1,7 @@
 import "./App.css";
 import TextBubble from "./components/TextBubble";
 import { FaPaperPlane } from "react-icons/fa";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, componentDidUpdate } from "react";
 import socketIO from "socket.io-client";
 // change to node env
 const socket = socketIO.connect("http://localhost:3500");
@@ -30,8 +30,8 @@ function App() {
   useEffect(() => {
     socket.on("message", (mes) => {
       updateMessageList([...messageList, mes]);
-      scrollToTarget();
-    });
+    })
+    scrollToTarget(); 
   });
 
   return (
@@ -39,13 +39,12 @@ function App() {
       <div className="Header">
         <h1 style={{ width: "170px" }}>Chat Room</h1>
       </div>
-      <div className="message-container">
-        {messageList.map((m) => (
-          <TextBubble data={m} user={socket.id}></TextBubble>
-        ))}
-      </div>
-      <div ref={targetElementRef}></div>
-
+        <div className="message-container">
+          {messageList.map((m) => (
+            <TextBubble data={m} user={socket.id}></TextBubble>     
+          ))}
+          <div id="ref" ref={targetElementRef}></div>
+        </div>
       <div className="chat">
         <div className="chat-container">
           <input

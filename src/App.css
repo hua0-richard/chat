@@ -64,3 +64,7 @@ body {
   top: 0;
   left: 0;
 }
+
+#ref {
+  height: 1px; 
+}
