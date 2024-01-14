@@ -2,7 +2,7 @@ import "./App.css";
 import TextBubble from "./components/TextBubble";
 import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
-import { socket } from "./Socket"
+import { socket } from "./Socket";
 // change to node env
 function App() {
   const [messageList, updateMessageList] = useState([]);
@@ -41,7 +41,7 @@ function App() {
     socket.on("userCount", (count) => {
       console.log(count);
       updateUsersOnline(count);
-    })
+    });
     if (messageFlag) {
       scrollToTarget();
       updateMessageFlag(false);
@@ -52,8 +52,20 @@ function App() {
     <div>
       <div className="header">
         <div className="header-inside-container">
-          <h1 style={{ width: "170px" }}>Chat Room</h1>
-          <p> {usersOnline} users online</p>
+          <div>Chat Room</div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            {" "}
+            <div
+              style={{
+                borderRadius: "50%",
+                width: "10px",
+                height: "10px",
+                backgroundColor: "green",
+                margin: "4px",
+              }}
+            ></div>
+            <p>{usersOnline} online</p>
+          </div>
         </div>
       </div>
       <div className="message-container">
