@@ -10,7 +10,7 @@ function TextBubble({ data, user }) {
       {user === data.user ? (
           <div className="container-self">
             <div class="bubble-user-container">
-              <div>{user}</div>
+              <div>{data.user}</div>
               <div class="bubble">{data.data}</div>
             </div>
             <div class="profile-container">
@@ -33,7 +33,7 @@ function TextBubble({ data, user }) {
               />
             </div>
             <div className="bubble-user-container-alt">
-              <div>{user}</div>
+              <div>{data.user}</div>
               <div class="bubbleAlt">{data.data}</div>
             </div>
           </div>
