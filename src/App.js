@@ -1,10 +1,9 @@
 import "./App.css";
 import TextBubble from "./components/TextBubble";
 import { FaPaperPlane } from "react-icons/fa";
-import { useEffect, useState, useRef, componentDidUpdate } from "react";
-import socketIO from "socket.io-client";
+import { useEffect, useState, useRef } from "react";
+import { socket } from "./Socket"
 // change to node env
-const socket = socketIO.connect("http://localhost:3500");
 function App() {
   const [messageList, updateMessageList] = useState([]);
   const [messageFlag, updateMessageFlag] = useState(true);
