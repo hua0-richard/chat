@@ -47,10 +47,10 @@ function App() {
       updateUsersOnline(count);
     });
     socket.on("userConnected", (user) => {
-      if (user !== socket.id) {
+      if (user.user !== socket.id) {
         let obj = {
           type: "annoucement",
-          data: `${user} joined the chat`
+          data: `${user.pokemon} joined the chat`
         }
         console.log(obj)
         updateMessageList([...messageList, obj])
@@ -60,7 +60,7 @@ function App() {
     socket.on("userDisconnected", (user) => {
       let obj = {
         type: "annoucement",
-        data: `${user} left the chat`
+        data: `${user.pokemon} left the chat`
       }
       updateMessageList([...messageList, obj])
       updateMessageFlag(true);
