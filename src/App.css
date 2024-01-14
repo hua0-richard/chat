@@ -63,10 +63,17 @@ body {
 
 .header {
   position: fixed;
+  display: flex;
+  justify-content: center;
   width: 100vw;
   background-color: #242423;
   top: 0;
   left: 0;
+}
+
+.header-inside-container {
+  width: 90vw; 
+  justify-content: flex-start;
 }
 
 #ref {

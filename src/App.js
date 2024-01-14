@@ -9,6 +9,7 @@ function App() {
   const [messageList, updateMessageList] = useState([]);
   const [messageFlag, updateMessageFlag] = useState(true);
   const [text, updateText] = useState("");
+  const [usersOnline, updateUsersOnline] = useState(0);
   const targetElementRef = useRef(null);
 
   const handleKeyDown = (event) => {
@@ -38,6 +39,10 @@ function App() {
       updateMessageList([...messageList, mes]);
       updateMessageFlag(true);
     });
+    socket.on("userCount", (count) => {
+      console.log(count);
+      updateUsersOnline(count);
+    })
     if (messageFlag) {
       scrollToTarget();
       updateMessageFlag(false);
@@ -47,7 +52,10 @@ function App() {
   return (
     <div>
       <div className="header">
-        <h1 style={{ width: "170px" }}>Chat Room</h1>
+        <div className="header-inside-container">
+          <h1 style={{ width: "170px" }}>Chat Room</h1>
+          <p> {usersOnline} users online</p>
+        </div>
       </div>
       <div className="message-container">
         {messageList.map((m) => (
