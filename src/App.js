@@ -3,6 +3,7 @@ import TextBubble from "./components/TextBubble";
 import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import { socket } from "./Socket";
+import Announcement from "./components/Announcement";
 // change to node env
 function App() {
   const [messageList, updateMessageList] = useState([]);
@@ -28,20 +29,42 @@ function App() {
   function message() {
     if (text !== "") {
       socket.emit("message", text);
-      console.log(messageList);
       updateText("");
     }
   }
 
   useEffect(() => {
     socket.on("message", (mes) => {
-      updateMessageList([...messageList, mes]);
+      let obj = {
+        type: "message",
+        data: mes,
+      };
+      updateMessageList([...messageList, obj]);
       updateMessageFlag(true);
     });
     socket.on("userCount", (count) => {
       console.log(count);
       updateUsersOnline(count);
     });
+    socket.on("userConnected", (user) => {
+      if (user !== socket.id) {
+        let obj = {
+          type: "annoucement",
+          data: `${user} joined the chat`
+        }
+        console.log(obj)
+        updateMessageList([...messageList, obj])
+        updateMessageFlag(true);
+      }
+    }) 
+    socket.on("userDisconnected", (user) => {
+      let obj = {
+        type: "annoucement",
+        data: `${user} left the chat`
+      }
+      updateMessageList([...messageList, obj])
+      updateMessageFlag(true);
+    }) 
     if (messageFlag) {
       scrollToTarget();
       updateMessageFlag(false);
@@ -54,7 +77,6 @@ function App() {
         <div className="header-inside-container">
           <div>Chat Room</div>
           <div style={{ display: "flex", alignItems: "center" }}>
-            {" "}
             <div
               style={{
                 borderRadius: "50%",
@@ -69,9 +91,13 @@ function App() {
         </div>
       </div>
       <div className="message-container">
-        {messageList.map((m) => (
-          <TextBubble data={m} user={socket.id}></TextBubble>
-        ))}
+        {messageList.map((m) =>
+          m.type === "message" ? (
+            <TextBubble data={m.data} user={socket.id}></TextBubble>
+          ) : (
+            <Announcement text={m.data}></Announcement>
+          ),
+        )}
         <div id="ref" ref={targetElementRef}></div>
       </div>
       <div className="chat">
