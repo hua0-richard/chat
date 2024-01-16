@@ -1,8 +1,16 @@
 ## Title
+Chat App
 
 ## Description
+Chat Application
 
 ## Quick Start
-npm run
+client
+cd client
+npm start
+
+server
+cd server
+npm run dev
 
 ## Demo
