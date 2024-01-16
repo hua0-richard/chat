@@ -49,20 +49,20 @@ function App() {
     socket.on("userConnected", (user) => {
       let obj = {
         type: "annoucement",
-        data: `${user.pokemon} joined the chat`
-      }
-      console.log(obj)
-      updateMessageList([...messageList, obj])
+        data: `${user.pokemon} joined the chat`,
+      };
+      console.log(obj);
+      updateMessageList([...messageList, obj]);
       updateMessageFlag(true);
-    }) 
+    });
     socket.on("userDisconnected", (user) => {
       let obj = {
         type: "annoucement",
-        data: `${user.pokemon} left the chat`
-      }
-      updateMessageList([...messageList, obj])
+        data: `${user.pokemon} left the chat`,
+      };
+      updateMessageList([...messageList, obj]);
       updateMessageFlag(true);
-    }) 
+    });
     if (messageFlag) {
       scrollToTarget();
       updateMessageFlag(false);
@@ -73,18 +73,20 @@ function App() {
     <div>
       <div className="header">
         <div className="header-inside-container">
-          <div>Chat Room</div>
+          <div style={{ padding: "8px", fontSize: "36px" }}>Chat Room</div>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <div
-              style={{
-                borderRadius: "50%",
-                width: "10px",
-                height: "10px",
-                backgroundColor: "green",
-                margin: "4px",
-              }}
-            ></div>
-            <p>{usersOnline} online</p>
+            <div className="users-button">
+              <div
+                style={{
+                  borderRadius: "50%",
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: "green",
+                  margin: "4px",
+                }}
+              ></div>
+              <div>{usersOnline} online</div>
+            </div>
           </div>
         </div>
       </div>

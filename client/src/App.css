@@ -9,7 +9,7 @@ body {
 }
 
 .message-container {
-  padding-top: 72px;
+  padding-top: 96px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +75,22 @@ body {
   width: 90vw;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
+}
+
+.users-button {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.users-button:hover {
+  background-color: #333533;
 }
 
 #ref {
