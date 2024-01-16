@@ -1,0 +1,69 @@
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: #f5cb5c;
+  color: #242423;
+  word-break: break-word;
+  width: fit-content;
+  max-width: 50vw;
+}
+
+.bubbleAlt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: #333533;
+  word-break: break-word;
+  max-width: 50vw;
+}
+
+.bubble-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.bubble-user-container-alt {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.profile {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #cfdbd5;
+  background-color: #cfdbd5;
+}
+
+.container-other {
+  padding: 8px;
+  width: 90vw;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container-self {
+  padding: 8px;
+  width: 90vw;
+  display: flex;
+  justify-content: flex-end;
+}
