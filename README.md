@@ -5,11 +5,11 @@ Chat App
 Chat Application
 
 ## Quick Start
-client
+Quickstart Client
 cd client
 npm start
 
-server
+Quickstart Server
 cd server
 npm run dev
 
