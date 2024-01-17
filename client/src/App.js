@@ -33,6 +33,16 @@ function App() {
     }
   }
 
+  function groupMessage(index) {
+    if (index === 0) {
+      return false;
+    }
+    if (messageList[index].data.user !== messageList[index - 1].data.user) {
+      return false;
+    }
+    return true;
+  }
+
   useEffect(() => {
     socket.on("message", (mes) => {
       let obj = {
@@ -91,9 +101,13 @@ function App() {
         </div>
       </div>
       <div className="message-container">
-        {messageList.map((m) =>
+        {messageList.map((m, i) =>
           m.type === "message" ? (
-            <TextBubble data={m.data} user={socket.id}></TextBubble>
+            <TextBubble
+              data={m.data}
+              user={socket.id}
+              group={groupMessage(i)}
+            ></TextBubble>
           ) : (
             <Announcement text={m.data}></Announcement>
           ),
