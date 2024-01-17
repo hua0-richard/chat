@@ -6,6 +6,7 @@ function TextBubble({ data, user, group }) {
   let profilePicture,
     avatar,
     displayName,
+    messageBubble,
     textBubble = <></>;
 
   avatar = (
@@ -38,7 +39,7 @@ function TextBubble({ data, user, group }) {
       {profilePicture}
       <div className="bubble-user-container-alt">
         {displayName}
-        <div class="bubbleAlt">{data.data}</div>
+        {messageBubble}
       </div>
     </div>
     )
