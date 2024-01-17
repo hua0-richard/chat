@@ -6,7 +6,6 @@ function TextBubble({ data, user, group }) {
   let profilePicture,
     avatar,
     displayName,
-    messageBubble,
     textBubble = <></>;
 
   avatar = (
