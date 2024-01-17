@@ -5,7 +5,6 @@ import "./TextBubble.css";
 function TextBubble({ data, user, group }) {
   let profilePicture,
     avatar,
-    messageBubble,
     displayName,
     textBubble = <></>;
 
@@ -18,11 +17,12 @@ function TextBubble({ data, user, group }) {
     />
   );
 
+  if (!group) {
+    displayName = <div>{data.pokemon}</div>;
+    profilePicture = <div class="profile-container">{avatar}</div>;
+  }
+
   if (user === data.user) {
-    if (!group) {
-      displayName = <div>{data.pokemon} (Me)</div>;
-      profilePicture = <div class="profile-container">{avatar}</div>;
-    }
     textBubble = (
       <div className="container-self">
         <div className="bubble-user-container">
@@ -33,10 +33,6 @@ function TextBubble({ data, user, group }) {
       </div>
     );
   } else {
-    if (!group) {
-      displayName =  <div>{data.pokemon}</div>
-      profilePicture = <div className="profile-container">{avatar}</div>
-    }
     textBubble = (
       <div className="container-other">
       {profilePicture}
@@ -50,11 +46,7 @@ function TextBubble({ data, user, group }) {
 
   return (
     <div class="container">
-      {user === data.user ? (
-        textBubble
-      ) : (
-        textBubble
-      )}
+      {textBubble}
     </div>
   );
 }
