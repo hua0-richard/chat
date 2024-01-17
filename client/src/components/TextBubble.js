@@ -3,53 +3,57 @@ import Avatar from "boring-avatars";
 import "./TextBubble.css";
 
 function TextBubble({ data, user, group }) {
-  let profilePicture;
-  let messageBubble;
-  let displayName; 
+  let profilePicture,
+    avatar,
+    messageBubble,
+    displayName,
+    textBubble = <></>;
 
-  if (user === data.user && group) {
-    
+  avatar = (
+    <Avatar
+      size={24}
+      name={data.user}
+      variant="marble"
+      colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+    />
+  );
+
+  if (user === data.user) {
+    if (!group) {
+      displayName = <div>{data.pokemon} (Me)</div>;
+      profilePicture = <div class="profile-container">{avatar}</div>;
+    }
+    textBubble = (
+      <div className="container-self">
+        <div className="bubble-user-container">
+          {displayName}
+          <div className="bubble">{data.data}</div>
+        </div>
+        {profilePicture}
+      </div>
+    );
+  } else {
+    if (!group) {
+      displayName =  <div>{data.pokemon}</div>
+      profilePicture = <div className="profile-container">{avatar}</div>
+    }
+    textBubble = (
+      <div className="container-other">
+      {profilePicture}
+      <div className="bubble-user-container-alt">
+        {displayName}
+        <div class="bubbleAlt">{data.data}</div>
+      </div>
+    </div>
+    )
   }
 
   return (
     <div class="container">
       {user === data.user ? (
-        <div className="container-self">
-
-          <div class="bubble-user-container">
-            <div>{data.pokemon} (Me)</div>
-            <div class="bubble">{data.data}</div>
-          </div>
-
-
-          {!group ? (
-            <div class="profile-container">
-              <Avatar
-                size={24}
-                name={data.user}
-                variant="marble"
-                colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
-              />
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
+        textBubble
       ) : (
-        <div className="container-other">
-          <div class="profile-container">
-            <Avatar
-              size={24}
-              name={data.user}
-              variant="marble"
-              colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
-            />
-          </div>
-          <div className="bubble-user-container-alt">
-            <div>{data.pokemon}</div>
-            <div class="bubbleAlt">{data.data}</div>
-          </div>
-        </div>
+        textBubble
       )}
     </div>
   );
