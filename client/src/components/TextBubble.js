@@ -24,8 +24,14 @@ function TextBubble({ data, user, group }) {
   }
 
   if (user === data.user) {
+    let cssClass; 
+    if (!group) {
+      cssClass = "container-self"
+    } else {
+      cssClass = "container-self-close"
+    }
     textBubble = (
-      <div className="container-self">
+      <div className={cssClass}>
         <div className="bubble-user-container">
           {displayName}
           <div className="bubble">{data.data}</div>
@@ -34,12 +40,18 @@ function TextBubble({ data, user, group }) {
       </div>
     );
   } else {
+    let cssClass; 
+    if (!group) {
+      cssClass = "container-other"
+    } else {
+      cssClass = "container-other-close"
+    }
     textBubble = (
-      <div className="container-other">
+      <div className={cssClass}>
       {profilePicture}
       <div className="bubble-user-container-alt">
         {displayName}
-        {messageBubble}
+        <div class="bubbleAlt">{data.data}</div>
       </div>
     </div>
     )
