@@ -102,3 +102,39 @@
   display: flex;
   justify-content: flex-end;
 }
+
+
+.tapback-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tapback-other {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+#arrow-right {
+  color: #242423;
+}
+
+#arrow-right:hover {
+  transition: color 0.25s ease;
+  color: white;
+}
+
+#arrow-left {
+  color: #242423;
+}
+
+#arrow-left:hover {
+  transition: color 0.25s ease;
+  color: white; 
+}
+
+

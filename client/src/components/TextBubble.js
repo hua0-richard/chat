@@ -1,6 +1,9 @@
 import React from "react";
 import Avatar from "boring-avatars";
 import "./TextBubble.css";
+import { TiArrowForward } from "react-icons/ti";
+import { IoArrowUndoSharp } from "react-icons/io5";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 
 function TextBubble({ data, user, group }) {
   let profilePicture,
@@ -33,7 +36,13 @@ function TextBubble({ data, user, group }) {
       <div className={cssClass}>
         <div className="bubble-user-container">
           {displayName}
-          <div className="bubble">{data.data}</div>
+          <div className="tapback-user">
+            <div id="arrow-right">
+              <HiOutlineDotsHorizontal/>
+              <TiArrowForward/>
+            </div>
+            <div className="bubble">{data.data}</div>
+          </div>
         </div>
         {profilePicture}
       </div>
@@ -50,7 +59,10 @@ function TextBubble({ data, user, group }) {
       {profilePicture}
       <div className="bubble-user-container-alt">
         {displayName}
-        <div class="bubbleAlt">{data.data}</div>
+        <div className="tapback-other">
+          <div id="arrow-left"><IoArrowUndoSharp/><HiOutlineDotsHorizontal/></div>
+          <div class="bubbleAlt">{data.data}</div>
+        </div>
       </div>
     </div>
     )
