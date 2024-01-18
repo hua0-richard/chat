@@ -76,7 +76,7 @@
   padding-left: 56px; 
   padding-right: 8px;
   padding-bottom: 0px;
-  padding-top: 0px; 
+  padding-top: 4px; 
   width: 90vw;
   display: flex;
   justify-content: flex-start;
@@ -97,7 +97,7 @@
   /*48px + 8px*/
   padding-right: 56px;
   padding-bottom: 0px;
-  padding-top: 0px; 
+  padding-top: 4px; 
   width: 90vw;
   display: flex;
   justify-content: flex-end;

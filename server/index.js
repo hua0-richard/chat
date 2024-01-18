@@ -6,6 +6,7 @@ const httpServer = createServer();
 var users = 0;
 var ID_Pokemon_Map_Dict = {};
 var PokemonIDList = new Array(101).fill(0);
+var messageHistory = []; 
 
 function genRandomID() {
   for (let i = 0; i < 100; i++) {
@@ -39,6 +40,7 @@ io.on("connection", (socket) => {
       });
       io.emit("userCount", users);
     });
+    
   // send message in chat
   socket.on("message", (data) => {
     let message = {
@@ -50,6 +52,7 @@ io.on("connection", (socket) => {
     console.log(message);
     io.emit("message", message);
   });
+
   // user disconnect
   socket.on("disconnect", (data) => {
     users--;
