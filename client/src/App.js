@@ -4,6 +4,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import { socket } from "./Socket";
 import Announcement from "./components/Announcement";
+import moment from 'moment';
 // change to node env
 function App() {
   const [messageList, updateMessageList] = useState([]);
@@ -40,6 +41,13 @@ function App() {
     if (messageList[index].data.user !== messageList[index - 1].data.user) {
       return false;
     }
+    let prev = Date.parse(messageList[index - 1].data.time);
+    let curr = Date.parse(messageList[index].data.time);
+    // in milliseconds
+    if (curr - prev > 5000) {
+      return false; 
+    }
+
     return true;
   }
 
