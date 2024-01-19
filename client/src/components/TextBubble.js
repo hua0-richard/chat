@@ -26,11 +26,11 @@ function TextBubble({ data, user, group }) {
   }
 
   if (user === data.user) {
-    let cssClass; 
+    let cssClass;
     if (!group) {
-      cssClass = "container-self"
+      cssClass = "container-self";
     } else {
-      cssClass = "container-self-close"
+      cssClass = "container-self-close";
     }
     textBubble = (
       <div className={cssClass}>
@@ -38,8 +38,8 @@ function TextBubble({ data, user, group }) {
           {displayName}
           <div className="tapback-user">
             <div id="arrow-right">
-              <HiOutlineDotsHorizontal/>
-              <TiArrowForward/>
+              <HiOutlineDotsHorizontal />
+              <TiArrowForward />
             </div>
             <div className="bubble">{data.data}</div>
           </div>
@@ -48,31 +48,30 @@ function TextBubble({ data, user, group }) {
       </div>
     );
   } else {
-    let cssClass; 
+    let cssClass;
     if (!group) {
-      cssClass = "container-other"
+      cssClass = "container-other";
     } else {
-      cssClass = "container-other-close"
+      cssClass = "container-other-close";
     }
     textBubble = (
       <div className={cssClass}>
-      {profilePicture}
-      <div className="bubble-user-container-alt">
-        {displayName}
-        <div className="tapback-other">
-          <div id="arrow-left"><IoArrowUndoSharp/><HiOutlineDotsHorizontal/></div>
-          <div class="bubbleAlt">{data.data}</div>
+        {profilePicture}
+        <div className="bubble-user-container-alt">
+          {displayName}
+          <div className="tapback-other">
+            <div id="arrow-left">
+              <IoArrowUndoSharp />
+              <HiOutlineDotsHorizontal />
+            </div>
+            <div class="bubbleAlt">{data.data}</div>
+          </div>
         </div>
       </div>
-    </div>
-    )
+    );
   }
 
-  return (
-    <div class="container">
-      {textBubble}
-    </div>
-  );
+  return <div class="container">{textBubble}</div>;
 }
 
 export default TextBubble;
