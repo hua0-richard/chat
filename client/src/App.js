@@ -4,7 +4,6 @@ import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import { socket } from "./Socket";
 import Announcement from "./components/Announcement";
-import moment from "moment";
 // change to node env
 function App() {
   const [messageList, updateMessageList] = useState([]);

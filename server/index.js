@@ -1,5 +1,6 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+import mysql from "mysql";
 
 const httpServer = createServer();
 
