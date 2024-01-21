@@ -5,5 +5,19 @@ services:
       - "3000:3000"
   server: 
     build: "./server"
+    environment:
+      MONGODB_URI: mongodb://mongo_db:27017
     ports: 
       - "3500:3500"
+
+  db:
+    image: "mongo"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+    volumes:
+      - db-data:/foo
+volumes:
+  db-data:

@@ -1,14 +1,19 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-
-import mysql from "mysql2";
-// Create a connection pool
-const conn = mysql.createConnection({
-  host:  process.env.DB_HOST,
-  password: 'password',
-});
-
+import  { MongoClient } from "mongodb"
 const httpServer = createServer();
+// Connection URI. Update this with your MongoDB connection string.
+const uri = process.env.MONGODB_URI;
+
+
+// Create a new MongoClient
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function connectToMongoDB() {
+    // Connect to the MongoDB server
+    await client.connect();
+    console.log('Connected to MongoDB');
+}
 
 var users = 0;
 var ID_Pokemon_Map_Dict = {};
@@ -50,7 +55,7 @@ io.on("connection", (socket) => {
     
   // send message in chat
   socket.on("message", (data) => {
-    run()
+    connectToMongoDB();
 
     let message = {
       user: socket.id,
