@@ -7,11 +7,6 @@ Features in the future include, tapbacks/replies on messages, chatrooms, and per
 
 ## Quick Start
 To run the application, you will need to:
-1. cd /client
-2. npm i
-3. npm start
-3. cd /server
-4. npm i
-5. npm run dev 
+1. docker-compose up
 The application will be available at http://localhost:3000/
 Open multiple instances of http://localhost:3000/ to have multiple users
