@@ -1,6 +1,12 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import mysql from "mysql";
+
+import mysql from "mysql2";
+// Create a connection pool
+const conn = mysql.createConnection({
+  host:  process.env.DB_HOST,
+  password: 'password',
+});
 
 const httpServer = createServer();
 
@@ -44,6 +50,8 @@ io.on("connection", (socket) => {
     
   // send message in chat
   socket.on("message", (data) => {
+    run()
+
     let message = {
       user: socket.id,
       pokemon: ID_Pokemon_Map_Dict[socket.id],
