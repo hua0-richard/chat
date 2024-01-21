@@ -3,7 +3,7 @@ import { Server } from "socket.io";
 import  { MongoClient } from "mongodb"
 const httpServer = createServer();
 // Connection URI. Update this with your MongoDB connection string.
-const uri = process.env.MONGODB_URI;
+const uri = process.env.CONN_STR;
 
 
 // Create a new MongoClient
