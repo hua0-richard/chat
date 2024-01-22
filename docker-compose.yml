@@ -4,6 +4,7 @@ services:
     ports: 
       - "3000:3000"
   server: 
+    # wait for monogdb to start
     build: "./server"
     environment:
       - CONN_STR=mongodb://root:example@mongodb
@@ -11,7 +12,6 @@ services:
       - mongodb
     ports: 
       - "3500:3500"
-
   mongodb:
     image: "mongo"
     environment:
