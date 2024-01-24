@@ -49,6 +49,7 @@ function App() {
     return true;
   }
 
+  // useEffect hook checking for a socket 'message'
   useEffect(() => {
     socket.on("message", (mes) => {
       let obj = {
