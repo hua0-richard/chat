@@ -1,8 +1,3 @@
-body {
-  background-color: #242423;
-  color: #e8eddf;
-}
-
 .container {
   display: flex;
   flex-direction: column;

@@ -41,7 +41,7 @@ function TextBubble({ data, user, group }) {
               <HiOutlineDotsHorizontal />
               <TiArrowForward />
             </div>
-            <div className="bubble">{data.data}</div>
+            <div className="bubble" class="bg-gradient-to-r from-emerald-400 to-cyan-400">{data.data}</div>
           </div>
         </div>
         {profilePicture}
@@ -64,7 +64,7 @@ function TextBubble({ data, user, group }) {
               <IoArrowUndoSharp />
               <HiOutlineDotsHorizontal />
             </div>
-            <div class="bubbleAlt">{data.data}</div>
+            <div class="bg-gradient-to-r from-rose-400 to-red-500" >{data.data}</div>
           </div>
         </div>
       </div>

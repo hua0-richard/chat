@@ -3,6 +3,7 @@ import TextBubble from "./components/TextBubble";
 import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import { socket } from "./Socket";
+import { NextUIProvider } from "@nextui-org/react";
 import Announcement from "./components/Announcement";
 // change to node env
 function App() {
@@ -87,6 +88,8 @@ function App() {
   });
 
   return (
+  <NextUIProvider>
+
     <div>
       <div className="header">
         <div className="header-inside-container">
@@ -140,6 +143,8 @@ function App() {
         </div>
       </div>
     </div>
+  </NextUIProvider>
+
   );
 }
 
