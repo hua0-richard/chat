@@ -41,7 +41,7 @@ function TextBubble({ data, user, group }) {
               <HiOutlineDotsHorizontal />
               <TiArrowForward />
             </div>
-            <div className="bubble" class="bg-gradient-to-r from-emerald-400 to-cyan-400">{data.data}</div>
+            <div className="bubble" class="bg-primary">{data.data}</div>
           </div>
         </div>
         {profilePicture}

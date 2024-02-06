@@ -88,8 +88,6 @@ function App() {
   });
 
   return (
-  <NextUIProvider>
-
     <div>
       <div className="header">
         <div className="header-inside-container">
@@ -143,8 +141,6 @@ function App() {
         </div>
       </div>
     </div>
-  </NextUIProvider>
-
   );
 }
 
